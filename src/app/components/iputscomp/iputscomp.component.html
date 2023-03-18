@@ -11,16 +11,16 @@
       id="rnginp"
       min="2"
       max="20"
-      onclick="getValue()"
+      (click)="getValue($event)"
     />
-    <p id="txt">x</p>
+    <p id="txt">{{x}}</p>
   </div>
 </div>
 <div class="settings">
   <p>Settings</p>
   <ul>
     <li>
-      <input type="checkbox"  name="upperinp" id="uprinp" (change)="checkCheckBoxvaluelower($event)" />
+      <input type="checkbox"  name="upperinp" id="uprinp" (change)="checkCheckBoxvalueupper($event)" />
       <label for="upperinp">Upper Cases</label>
     </li>
     <li>

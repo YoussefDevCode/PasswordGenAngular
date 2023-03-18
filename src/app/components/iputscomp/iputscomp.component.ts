@@ -4,41 +4,50 @@ import { ServicegeneratorService } from 'src/app/service/servicegenerator.servic
 @Component({
   selector: 'app-iputscomp',
   templateUrl: './iputscomp.component.html',
-  styleUrls: ['./iputscomp.component.scss']
+  styleUrls: ['./iputscomp.component.scss'],
 })
 export class IputscompComponent {
-isCheckedupper: Boolean=false;
-isCheckedlower: Boolean=true;
-isCheckednumber: Boolean=false;
-isCheckedsymbol: Boolean=false;
+  isCheckedupper: Boolean = false;
+  isCheckedlower: Boolean = true;
+  isCheckednumber: Boolean = false;
+  isCheckedsymbol: Boolean = false;
+  x: String = 'length';
 
-  constructor(private service:ServicegeneratorService){
-    
+  constructor(private service: ServicegeneratorService) {}
+  getValue(e: any) {
+    this.service.setValue(e.target.value);
+    this.x = e.target.value;
   }
-  checkCheckBoxvalueupper(event:any){
+
+  checkCheckBoxvalueupper(event: any) {
     this.isCheckedupper = event.target.checked;
     console.log(this.isCheckedupper);
   }
-  checkCheckBoxvaluelower(event:any){
+  checkCheckBoxvaluelower(event: any) {
     this.isCheckedlower = event.target.checked;
-    console.log(this.isCheckedlower);  
+    console.log(this.isCheckedlower);
   }
-  checkCheckBoxvaluenbr(event:any){
+  checkCheckBoxvaluenbr(event: any) {
     this.isCheckednumber = event.target.checked;
-    console.log(this.isCheckednumber); 
-   }
-  checkCheckBoxvaluesbl(event:any){
+    console.log(this.isCheckednumber);
+  }
+  checkCheckBoxvaluesbl(event: any) {
     this.isCheckedsymbol = event.target.checked;
     console.log(this.isCheckedsymbol);
-    }
-  generateBtn(){
-    console.log([this.isCheckedlower,this.isCheckedupper,
-      this.isCheckednumber,this.isCheckedsymbol]);
-    this.service.set_data_checkedBox(this.isCheckedlower,this.isCheckedupper,
-      this.isCheckednumber,this.isCheckedsymbol);
-    
   }
-
-  
-  
+  generateBtn() {
+    console.log([
+      this.isCheckedlower,
+      this.isCheckedupper,
+      this.isCheckednumber,
+      this.isCheckedsymbol,
+    ]);
+    this.service.set_data_checkedBox(
+      this.isCheckedlower,
+      this.isCheckedupper,
+      this.isCheckednumber,
+      this.isCheckedsymbol
+    );
+    console.log(this.service.generatePassword());
+  }
 }
