@@ -1,0 +1,61 @@
+.inprange{
+    margin: 0.5em;
+    color: black; 
+    height: 4em;
+    width: 100%;
+    #inprangelabel{
+        color: magenta;
+        text-align: center;
+    }
+    #inprangeinp{
+        text-align: center;
+        #txt{
+            color: magenta;
+            margin: 0;
+            padding: 0.2em;
+        }
+        #rnginp{
+            margin-top: 0.5em;
+            margin-bottom: 0;
+            padding-bottom: 0;
+            padding-bottom: 0.2em;
+        }
+    }
+}
+.settings{
+           
+    p{
+        text-align: center ; 
+        font-weight: bold;
+    }
+    ul{
+        margin: 0.1em;
+        list-style-type: none;
+        padding-left: 5em;             
+          li{
+            display: block;
+           input[type=checkbox]{
+            cursor: pointer;
+            &:checked{
+                background-color: magenta;
+            }
+           }
+        }
+    }      
+}
+.btndiv{
+    height: 2.5em;
+    margin: 0.5em;
+    display: flex;
+    justify-content: center;
+    button{
+        margin: 0.2em;
+        padding: 0.3em;
+        background-color: magenta;
+        border-radius: 0.2em;
+        color: white;
+        &:hover{
+            background-color: orangered;
+        }  
+    }            
+}
