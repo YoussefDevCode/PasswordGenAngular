@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ServicegeneratorService } from 'src/app/service/servicegenerator.service';
 
 @Component({
@@ -6,14 +6,22 @@ import { ServicegeneratorService } from 'src/app/service/servicegenerator.servic
   templateUrl: './iputscomp.component.html',
   styleUrls: ['./iputscomp.component.scss'],
 })
-export class IputscompComponent {
+export class IputscompComponent implements OnInit {
   isCheckedupper: Boolean = false;
   isCheckedlower: Boolean = true;
   isCheckednumber: Boolean = false;
   isCheckedsymbol: Boolean = false;
   x: String = 'length';
+  password:String='';
 
   constructor(private service: ServicegeneratorService) {}
+  ngOnInit(): void {
+    this.service.dataObeservable.subscribe(
+      (pwd)=>{
+        this.password=pwd;
+      }
+    );
+  }
   getValue(e: any) {
     this.service.setValue(e.target.value);
     this.x = e.target.value;
@@ -49,5 +57,12 @@ export class IputscompComponent {
       this.isCheckedsymbol
     );
     console.log(this.service.generatePassword());
+  }
+  copyBtn(){
+    { 
+      
+      navigator.clipboard.writeText(this.password.toString());
+      alert("Password copied: " + this.password);
+    }
   }
 }

@@ -1,4 +1,3 @@
-import { sequence } from '@angular/animations';
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 
@@ -8,10 +7,8 @@ import { Subject } from 'rxjs';
 export class ServicegeneratorService {
   private valueTmp = '';
   private length = '';
-  private data = {};
   private password = '';
   private elements = '';
-  private checks = [];
   private upper = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
   private lower = 'abcdefghijklmnopqrstuvwxyz';
   private numbers = '0123456789';
